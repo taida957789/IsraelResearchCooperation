@@ -46,7 +46,7 @@ fields = get_remote_version()
 try:
     update(FILE_UPDATER, fields['md5_updater'], fields['link_updater'])
     update(FILE_HEX, fields['md5_binary'], fields['link_binary'])
-    cmd = 'avrdude -c linuxgpio -C /etc/avrdude.conf -p m32u4 -U flash:w:<hex filename> -Uflash:w:$1 $2'
+    cmd = 'avrdude -c linuxgpio -C /etc/avrdude.conf -p m32u4 -U flash:w:binray.hex -Uflash:w:$1 $2'
     ret_code = subprocess.call(cmd, shell=True)
     if ret_code == 1:
         print 'Success'
