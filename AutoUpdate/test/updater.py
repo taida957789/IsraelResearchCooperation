@@ -3,8 +3,10 @@
 
 import os, os.path, json, hashlib
 import requests
+import subprocess
 
-URL_UPDATE_VERSION = 'http://127.0.0.1/version.json'
+
+URL_UPDATE_VERSION = 'http://192.168.2.5:8080/version.json'
 FILE_UPDATER = 'updater.py'
 FILE_HEX = 'binray.hex'
 
@@ -44,6 +46,12 @@ fields = get_remote_version()
 try:
     update(FILE_UPDATER, fields['md5_updater'], fields['link_updater'])
     update(FILE_HEX, fields['md5_binary'], fields['link_binary'])
+    cmd = 'avrdude -c linuxgpio -C /etc/avrdude.conf -p m32u4 -U flash:w:binray.hex -Uflash:w:$1 $2'
+    ret_code = subprocess.call(cmd, shell=True)
+    if ret_code == 1:
+        print 'Success'
+    else:
+        print 'Failed'
 except:
     raise
 

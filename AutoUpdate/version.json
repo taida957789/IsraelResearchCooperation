@@ -1,6 +1,6 @@
 {
   "md5_binary" : "36af2349e82b7d174a53c732679919ca",
   "md5_updater" : "9be841b14ac831ba1c0add0414b43b51",
-  "link_binary" : "http://127.0.0.1/binary.hex",
-  "link_updater" : "http://127.0.0.1/updater.py"
+  "link_binary" : "http://192.168.2.5:8080/binary.hex",
+  "link_updater" : "http://192.168.2.5:8080/updater.py"
 }
