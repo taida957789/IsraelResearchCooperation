@@ -6,7 +6,7 @@ import requests
 import subprocess
 
 
-URL_UPDATE_VERSION = 'http://127.0.0.1/version.json'
+URL_UPDATE_VERSION = 'http://192.168.2.5:8080/version.json'
 FILE_UPDATER = 'updater.py'
 FILE_HEX = 'binray.hex'
 
